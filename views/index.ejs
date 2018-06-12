@@ -22,31 +22,41 @@
         td{
             border: 2px solid rgb(43, 167, 167);
         }
+        button{
+            background-color: blueviolet;
+            color: white;
+            height: 30px;
+        }
     </style>
 </head>
 <body>
-    <h1>Mangoose dashboard</h1>
+    <h1>Mongoose dashboard</h1>
     <hr>
+    <img src="lol.png" alt=""><br>
+
+    <a href="/mongooses/new"><button>CREATE A NEW MONGOOSE!</button></a><br><br>
+
     <table>
         <thead>
             <th>num</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th>Email</th>
+            <th>Animal</th>
+            <th>action</th>
         </thead>
         <tbody>
-                <% for (var user in users){ %>
-            <tr>
-                <td><%= parseInt(user)+1 %></td>
-                <td><%= users[user].first_name %></td>
-                <td><%= users[user].last_name %></td>
-                <td><%= users[user].age %></td>
-                <td><%= users[user].email %></td>
-            </tr>
+            <% if(animals){ %>
+                <% for (idx in animals){ %>
+                <tr>
+                    <td><%= parseInt(idx)+1 %></td>
+                    <td> <a href="/mongooses/<%= animals[idx]._id %>"> <%= animals[idx].name %></a></td>
+                    <td><a href="/mongooses/edit/<%= animals[idx]._id %>">EDIT</a> - <a href="/mongooses/destroy/<%= animals[idx]._id %>">DELETE</a></td>
+                </tr>
+                <% } %>
             <% } %>
         </tbody>
     </table>
-    <% } %>
+<hr>
+<!-- <b><u>JSON.stringify(animals) =></b></u><br>
+<%= JSON.stringify(animals) %> -->
+
 </body>
 </html>
