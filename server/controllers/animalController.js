@@ -1,6 +1,6 @@
 //controller for routes
+const mongoose = require('mongoose');
 
-var mongoose = require("mongoose");
 var Animal = mongoose.model("Animal");
 
 module.exports = {
